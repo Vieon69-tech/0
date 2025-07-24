@@ -1,0 +1,8 @@
+// List of main commands and their description
+var msg = "*🤖 Available Bot Commands:*\n\n" +
+"/start - Begin using the bot and receive your temporary email\n" +
+"/about - Information about the bot creator\n" +
+"/help - See this list of bot commands\n\n" +
+
+Bot.sendMessage(msg, { parse_mode: "Markdown" })
+    
