@@ -1,0 +1,6 @@
+
+HTTP.post({
+  url: "https://api.internal.temp-mail.io/api/v3/email/new",
+  body: { min_name_length: 10, max_name_length: 10 },
+  success: "gen#2"
+})
