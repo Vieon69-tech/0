@@ -1,0 +1,35 @@
+var fullBotUsers = Bot.getProperty("wholeUsers")
+var usrname = "@" + user.username
+if (!request) {
+  Bot.sendMessage(
+    "*⚠️Unable To Broadcast*\n\n_Message Too Much Rich With Entity_"
+  )
+  return
+}
+Bot.sendMessage("Starting Broadcast....")
+if (!user.username) {
+  var usrname =
+    '<a href="tg://user?id=' + user.telegramid + '">' + user.first_name + "</a>"
+}
+var fromchatid = user.telegramid
+var fromsgid = request.message_id
+if (request.forward_from) {
+  var fromchatid = request.forward_from.id
+  var fromsgid = request.message_id
+}
+if (request.forward_from_chat) {
+  var fromchatid = request.forward_from_chat.id
+  var fromsgid = request.forward_from_message_id
+}
+for (var index in fullBotUsers) {
+  var info = fullBotUsers[index]
+  Api.sendMessage({
+    chat_id: info,
+    text: "Forward Broadcast By " + usrname + ""
+  })
+  Api.forwardMessage({
+    chat_id: info,
+    from_chat_id: fromchatid,
+    message_id: fromsgid
+  })
+}
