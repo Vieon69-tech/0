@@ -1,0 +1,10 @@
+var at = User.getProperty("email")
+  if ( at == undefined){
+    Bot.sendMessage("*❌ Please create an email first*")
+  }else{
+  HTTP.get({
+    url:
+"https://api.internal.temp-mail.io/api/v3/email/"+at+"/messages",
+    success: "inbox#2"
+  })
+  return}
