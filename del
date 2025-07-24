@@ -1,0 +1,10 @@
+if (!params) {
+  return
+}
+var p = params.split(" ")
+
+HTTP.delete({
+  url: "https://api.internal.temp-mail.io/api/v3/email/"+p[0]+"",
+  body: {"token":""+p[1]+""},
+  success: "/hm"
+})
