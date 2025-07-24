@@ -1,0 +1,18 @@
+if ( content == undefined ){
+Api.answerCallbackQuery({
+  callback_query_id: request.id,
+  text: "✅ Successfully delete emails",
+  show_alert: true
+})
+var ms = Libs.ResourcesLib.anotherChatRes("ms", "global")
+ms.add(1)
+
+Api.deleteMessage({ message_id: request.message.message_id })
+Bot.runCommand("/newM")
+}else{
+Api.answerCallbackQuery({
+  callback_query_id: request.id,
+  text: "❌ Unsuccessful delete emails",
+  show_alert: true
+})
+}
